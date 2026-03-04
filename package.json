@@ -1,0 +1,115 @@
+{
+	"name": "vscode-explorer-kit",
+	"publisher": "NicholasHsiang",
+	"displayName": "Explorer Kit",
+	"description": "一些有趣的功能",
+	"icon": "art/icon.png",
+	"version": "1.0.0",
+	"license": "MIT",
+	"packageManager": "pnpm@10.26.1",
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/xianghongai/vscode-explorer-kit/"
+	},
+	"engines": {
+		"vscode": "^1.74.0"
+	},
+	"categories": [
+		"Other"
+	],
+	"keywords": [],
+	"main": "./out/extension.js",
+	"contributes": {
+		"commands": [
+			{
+				"category": "VSCode Explorer Kit",
+				"command": "extension.explorerKit.nextOccurrence",
+				"title": "Next Occurrence"
+			},
+			{
+				"category": "VSCode Explorer Kit",
+				"command": "extension.explorerKit.prevOccurrence",
+				"title": "Prev Occurrence"
+			},
+			{
+				"category": "VSCode Explorer Kit",
+				"command": "extension.explorerKit.searchWordGlobally",
+				"title": "Search Word Globally"
+			},
+			{
+				"category": "VSCode Explorer Kit",
+				"command": "extension.explorerKit.openInCode",
+				"title": "Open in Code"
+			},
+			{
+				"category": "VSCode Explorer Kit",
+				"command": "extension.explorerKit.openInCodeInsiders",
+				"title": "Open in Code Insiders"
+			}
+		],
+		"menus": {
+			"explorer/context": [
+				{
+					"command": "extension.explorerKit.openInCode",
+					"when": "config.explorerKit.enableExplorerOpenInCode && (explorerResourceIsFolder || explorerResourceIsFile)",
+					"group": "navigation@98"
+				},
+				{
+					"command": "extension.explorerKit.openInCodeInsiders",
+					"when": "config.explorerKit.enableExplorerOpenInCode && (explorerResourceIsFolder || explorerResourceIsFile)",
+					"group": "navigation@99"
+				}
+			]
+		},
+		"configuration": {
+			"title": "Explorer Kit",
+			"properties": {
+				"explorerKit.enableExplorerOpenInCode": {
+					"type": "boolean",
+					"default": false,
+					"description": "在资源管理器右键菜单中显示 Open in Code / Open in Code Insiders。"
+				}
+			}
+		},
+		"keybindings": [
+			{
+				"command": "extension.explorerKit.nextOccurrence",
+				"key": "f4",
+				"when": "editorTextFocus"
+			},
+			{
+				"command": "extension.explorerKit.prevOccurrence",
+				"key": "ctrl+f4",
+				"when": "editorTextFocus"
+			},
+			{
+				"command": "extension.explorerKit.searchWordGlobally",
+				"key": "ctrl+shift+f4",
+				"when": "editorTextFocus"
+			}
+		]
+	},
+	"scripts": {
+		"vscode:prepublish": "pnpm run package",
+		"package": "pnpm run lint && pnpm run compile",
+		"compile": "tsc -p ./",
+		"watch": "tsc -watch -p ./",
+		"lint": "eslint src",
+		"build": "vsce package",
+		"publish": "vsce publish"
+	},
+	"devDependencies": {
+		"@eslint/js": "^9.22.0",
+		"@types/lodash": "^4.17.13",
+		"@types/node": "^22.13.10",
+		"@types/vscode": "^1.73.0",
+		"@vscode/vsce": "^2.25.0",
+		"eslint": "^9.22.0",
+		"npm-check-updates": "^19.6.3",
+		"typescript": "^5.8.2",
+		"typescript-eslint": "^8.26.0"
+	},
+	"dependencies": {
+		"lodash": "^4.17.21"
+	}
+}
