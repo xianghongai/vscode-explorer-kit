@@ -17,33 +17,31 @@
   </a>
 </p>
 
-A Swiss Army knife VS Code extension. 
+A Swiss Army knife VS Code extension.
 
-[English](./README.en.md)
+## Features
 
-## 功能
+### Quick Find
 
-### 快速查找
+No text selection required. No find dialog popup. It starts right where your cursor lands — automatically picks up the word at the cursor position, then jumps or searches instantly.
 
-无需先选中文本，无需弹出查找框——光标落在哪里，就从哪里开始。自动识别光标所在位置的字符范围，一键跳转或发起全局搜索。
+| Command | Keybinding | Description |
+|---------|------------|-------------|
+| Next Occurrence | `F4` | Jump to the next match in the current file |
+| Prev Occurrence | `Ctrl+F4` | Jump to the previous match in the current file |
+| Search Word Globally | `Ctrl+Shift+F4` | Trigger a workspace-wide search |
 
-| 命令 | 快捷键 | 说明 |
-|------|--------|------|
-| Next Occurrence | `F4` | 在当前文件中向下跳转到下一个匹配项 |
-| Prev Occurrence | `Ctrl+F4` | 在当前文件中向上跳转到上一个匹配项 |
-| Search Word Globally | `Ctrl+Shift+F4` | 直接发起全局搜索 |
+### Open in External Editor
 
-### 在外部编辑器中打开
+Open files/folders in another version of VS Code from the Explorer context menu. Works with both local and WSL/SSH Remote workspaces.
 
-在资源管理器右键菜单中将文件/文件夹用另一个版本的 VS Code 打开。支持本地和 WSL/SSH Remote 场景。
+Enable via settings:
 
-需先启用设置项：
-
-- `explorerKit.enableExplorerOpenInCode`：默认 `false`，开启后右键菜单显示：
+- `explorerKit.enableExplorerOpenInCode`: defaults to `false`. When enabled, the context menu shows:
   - **Open in Code**
   - **Open in Code Insiders**
 
-> **已知限制**：WSL Remote 下跨编辑器打开（如从 Insiders 打开 Code stable，或反向）可能不工作。这是 VS Code 平台限制——每个编辑器只向 WSL 注入自己的 remote-cli，无法启动其他版本。本地环境及同编辑器场景不受影响。
+> **Known limitation**: Cross-editor launching (e.g. opening Code stable from Insiders, or vice versa) may not work under WSL Remote. This is a VS Code platform constraint — each editor only injects its own remote-cli into WSL and cannot launch other versions. Local and same-editor scenarios are unaffected.
 
 ## License
 

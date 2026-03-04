@@ -4,7 +4,7 @@
 	"displayName": "Explorer Kit",
 	"description": "一些有趣的功能",
 	"icon": "art/icon.png",
-	"version": "1.0.0",
+	"version": "1.0.1",
 	"license": "MIT",
 	"packageManager": "pnpm@10.26.1",
 	"repository": {
