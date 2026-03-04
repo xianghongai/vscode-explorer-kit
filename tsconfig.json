@@ -1,0 +1,14 @@
+{
+	"compilerOptions": {
+		"module": "esnext",
+		"target": "es2020",
+		"lib": ["es2020"],
+		"types": ["node", "vscode"],
+		"moduleResolution": "bundler",
+		"sourceMap": true,
+		"strict": true,
+		"rootDir": "src",
+		"noEmit": true
+	},
+	"exclude": ["node_modules", "tsup.config.ts"]
+}
